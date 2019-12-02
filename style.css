@@ -2,38 +2,18 @@ div.row{
     margin-bottom: 10px;
     margin-top: 10px;
 }
-
-/*div.row-principal {*/
-    /*margin-top: 10px;*/
-    /*margin-bottom: 10px;*/
-/*}*/
-
-/*li.item {*/
-    /*list-style: none;*/
-    /*cursor: pointer;*/
-    /*width: 100%;*/
-/*}*/
-
-/*li.item div.conatiner-item {*/
-    /*height: 30px;*/
-    /*margin: 5px;*/
-    /*border: 1px solid #d8d8d8;*/
-    /*border-radius: 5px;}*/
-/*li.item div.conatiner-item div.content-item {*/
-    /*border-left: 5px solid #28a745;*/
-    /*padding: 2px 14px;}*/
-/*li.item div.conatiner-item div.content-item span.qtd-questoes-item {*/
-    /*padding: 0 5px;*/
-    /*float: right;*/
-    /*background: #28a745;*/
-    /*border-radius: 7px;*/
-    /*color: #fff;}*/
-/*li.item div.conatiner-item div.content-item span.btn-abrir-sub-item {*/
-    /*margin-right: 5px;*/
-    /*float: left}*/
-/*li.item div.conatiner-item div.content-item span.btn-abrir-sub-item.aberto {*/
-    /*transform: rotate(90deg)}*/
-
-/*li.item div.conatiner-item:hover {*/
-    /*background: #f2f2f2;*/
-/*}*/
+body {
+    font-family: Menlo, Consolas, monospace;
+    color: #444;
+  }
+  .item {
+    cursor: pointer;
+  }
+  .bold {
+    font-weight: bold;
+  }
+  ul {
+    padding-left: 1em;
+    line-height: 1.5em;
+    list-style-type: dot;
+  }

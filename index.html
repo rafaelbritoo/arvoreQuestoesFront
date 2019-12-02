@@ -27,19 +27,62 @@
 <!-- Our application root element -->
 <div id="app" style="background: #f0f0f0">
     <b-jumbotron header="Programa de Estudos" lead="Monte seu programa de estudos"></b-jumbotron>
+    
+        <b-container>
+            <b-form @submit="onSubmit" v-if="show">
+                <div class="mt-3 row">Selecione o Orgão:</div>
+                <b-form-select 
+                    v-model="form.orgao" 
+                    :options="orgaos"
+                    id="in-orgao"
+                    required
+                ></b-form-select>
 
-    <div class="container">
-        <div class="mt-3 row">Orgão:</div>
-        <b-form-select v-model="selected" :options="orgaos"></b-form-select>
+                <div class="mt-3 row">Selecione a Banca:</div>
+                <b-form-select 
+                    style="margin-bottom: 20px" 
+                    v-model="form.banca" 
+                    :options="bancas"
+                    id="in-banca"
+                    required
+                ></b-form-select>
 
-        <div class="mt-3 row">Banca:</div>
-        <b-form-select style="margin-bottom: 20px" v-model="selected" :options="bancas"></b-form-select>
+                <b-button type="submit" variant="secondary">Gerar Estudos</b-button>
+            </b-form>
 
-        <div class="row">
-            <b-button :pressed.sync="myToggle" variant="secondary">Gerar estudo</b-button>
-        </div>
-    </div>
+            <b-row class="row">
+                <b-col>
+                    <tree-item
+                            v-for="(assunto, index) in arvore"
+                            :key="index"
+                            :item="assunto"
+                    ></tree-item>
+                </b-col>
+            </b-row>
+    </b-container>
     <b-jumbotron></b-jumbotron>
 </div>
+<script type="text/x-template" id="item-template">
+    <li>
+        <div class="conatiner-item" @click="toggle">
+            <div class="content-item">
+                {{ item.nome }}
+                <span v-if="isFolder" class="btn-abrir-sub-item" :class="{aberto: isOpen}">
+                    >
+                </span>
+                <span class="qtd-questoes-item" title="Total de questões">
+                    {{ item.total }}
+                </span>
+            </div>
+        </div>
+        <ul v-show="isOpen" v-if="isFolder">
+            <tree-item
+                    v-for="(filho, index) in item.filhos"
+                    :key="index"
+                    :item="filho"
+            ></tree-item>
+        </ul>
+    </li>
+</script>
 </body>
 </html>
